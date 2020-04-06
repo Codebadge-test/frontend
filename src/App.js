@@ -11,15 +11,17 @@ import {
 import About from './Component/About'
 import Home from './Component/Home'
 import Cookies from 'js-cookie';
-import { Button,Navbar,Nav, InputGroup } from 'react-bootstrap';
+import { Button,Navbar,Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Component/Header.css'
-var clientID="9a3d93461f11673e4164"
-if(process.env.NODE_ENV=="production"){
-  var frontend = "https://codebadge-frontend.netlify.com/"
+var clientID,frontend;
+if(process.env.NODE_ENV==="production"){
+  frontend = "https://codebadge-frontend.netlify.com/"
+  clientID="9a3d93461f11673e4164"
 }
 else{
-var frontend = "http://localhost:3000"
+frontend = "http://localhost:3000"
+clientID="90483cf9b8d2f46424fa"
 }
 function login(){
     window.location.href=`https://github.com/login/oauth/authorize?client_id=${clientID}`;
