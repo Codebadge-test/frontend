@@ -3,10 +3,10 @@ import axios from 'axios';
 import Cookies from 'js-cookie'
 var backend;
 if(process.env.NODE_ENV==="production"){
-    backend = "https://codebadge-backend.herokuapp.com"
+    backend = "https://codebadge-backend.herokuapp.com/"
 }
 else{
-    backend = "http://localhost:3001"
+    backend = "http://localhost:3001/"
 }
 class Dashboard extends Component {
     constructor(props){
