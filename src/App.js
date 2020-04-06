@@ -11,32 +11,24 @@ import {
 import About from './Component/About'
 import Home from './Component/Home'
 import Cookies from 'js-cookie';
-import { Button,Navbar,Nav } from 'react-bootstrap';
+import { Button,Navbar,Nav, InputGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Component/Header.css'
-import axios from "axios"
 var clientID="9a3d93461f11673e4164"
-var clientSecret="3c799896323f37a83ebfc0acf208f611540998b4"
-
-var config = {
-  client_id: "9a3d93461f11673e4164",
-  client_secret: "3c799896323f37a83ebfc0acf208f611540998b4",
-  redirect_url: 'http://localhost:3000/github/callback',
-  authorize_url:'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/authorize',
-  token_url: 'https://github.com/login/oauth/access_token',
-  user_url: 'https://api.github.com/user',
-  scope: 'user'
-};
-
+if(process.env.NODE_ENV=="production"){
+  var frontend = "https://codebadge-frontend.netlify.com/"
+}
+else{
+var frontend = "http://localhost:3000"
+}
 function login(){
-    console.log("hit")
     window.location.href=`https://github.com/login/oauth/authorize?client_id=${clientID}`;
     
 }
 
 function logout(){
     Cookies.remove('token');
-    window.location.href="http://localhost:3000/"
+    window.location.href=frontend;
 }
 function App() {
   if(!Cookies.get('token')){
