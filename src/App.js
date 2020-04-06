@@ -11,6 +11,7 @@ import {
 import About from './Component/About'
 import Home from './Component/Home'
 import Register from './Component/Register'
+import Dashboard from './Component/Dashboard'
 
 import Cookies from 'js-cookie';
 import { Button,Navbar,Nav } from 'react-bootstrap';
@@ -52,6 +53,9 @@ function App() {
         </Navbar>
         <div className="main mt-15">
         <Switch>
+          <Route path="/register">
+              <Register/> 
+          </Route>
           <Route path="/about">
             <About/> 
           </Route>
@@ -81,7 +85,10 @@ function App() {
           </Navbar>
           <div className="main mt-15">
           <Switch>
-          <Route path="/register">
+            <Route path="/user">
+              <Dashboard/>
+            </Route>
+            <Route path="/register">
               <Register/> 
             </Route>
             <Route path="/about">
